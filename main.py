@@ -6,15 +6,15 @@ client = docker.from_env()
 host_config = docker.APIClient()
 
 ### BUILDING PYTESt SAMPLE CODE USING PYTEST BASE IMAGE ### 
-print(client.images.build(path="F:\\fixture_pytest_", tag='testimg_py', quiet=True))
+###print(client.images.build(path="F:\\fixture_pytest_", tag='testimg_py', quiet=True))
 
 ### RUNNING THE PYTEST IMAGE ###
-pytestimg=client.containers.run("testimg_py",command='/bin/bash', tty=True, detach=True, auto_remove=False)
-print("pytestimage:",pytestimg)
+###pytestimg=client.containers.run("testimg_py",command='/bin/bash', tty=True, detach=True, auto_remove=False)
+###print("pytestimage:",pytestimg)
 
 ##  RUNNING PYTHON IMAGE WITH VOLUME MOUNTED ##
-pytestimg_vol=client.containers.run(image='testimg_py', command='python test_div_by_.py ',auto_remove=False, stdin_open=True, detach=True, volumes={'testimg_py-volume': {'bind': '/data', 'mode': 'rw'}})
-print("testimg_py:", pytestimg_vol)
+###pytestimg_vol=client.containers.run(image='testimg_py', command='python test_div_by_.py ',auto_remove=False, stdin_open=True, detach=True, volumes={'testimg_py-volume': {'bind': '/data', 'mode': 'rw'}})
+###print("testimg_py:", pytestimg_vol)
 
 
 ## COMMAND TO RUN INSIDE THE CONTAINER ##
